@@ -1,9 +1,4 @@
-{% extends 'base.html' %} 
-{% block content %} 
-
-
-    {{ company_data[0]["name"] }}
-       
+{% extends 'base.html' %} {% block content %}
 
 <h2>{{page_title}}</h2>
 <p>
@@ -18,117 +13,43 @@
   leading her through the trials of the old labyrinth garden. The film employs
   make-up, animatronics, and CGI effects to bring life to its creatures.
 </p>
+{% for member in company_data%}
+
 <div class="row featurette">
+  {%if loop.index %2!=0%}
   <div class="col-md-7">
-    <h3>Ofelia</h3>
+    <h3>{{loop.index}} {{ member.name }}</h3>
     <p>
-      Ofelia is an eleven-year-old girl who is living in wartime Spain and,
-      after her father dies, is sent to live with her new stepfather, the
-      powerful fascist officer Captain Vidal. She feels trapped by reality until
-      her imagination takes her into an enchanted labyrinth where she meets a
-      faun who agrees to help her. Ofelia is determined to save her mother and
-      her unborn brother from Vidal's wicked clutches and was a friend of
-      Mercedes . She is transported into the magical world where she takes on a
-      giant toad and escapes from a child-eating monster, the Pale Man. When
-      Ofelia returns, she faces Captain Vidal's vicious abuse and tries to
-      poison him. Vidal gives chase, and Ofelia unselfishly gives up her life
-      for her brother when the evil man shoots her. It is stated by Guillermo
-      del Toro, that after she dies she is reborn as the princess of the
-      underworld after completing her third task, which was a sacrifice of an
-      innocent (which was herself).
+      {{ member.description }}
     </p>
   </div>
   <div class="flex col-md-5">
     <img
-      src="https://vignette4.wikia.nocookie.net/p__/images/e/e8/Ofelia_reading_a_storybook.jpg/revision/latest?cb=20131218000708&path-prefix=protagonist"
+      class="featurette-image img-responsive"
+      src="{{ member.image_source }}"
       alt=""
       srcset=""
     />
   </div>
-</div>
-<div class="row featurette">
-  <div class="col-md-5">
-    <img
-      src="https://justbadguys.files.wordpress.com/2015/11/str2_vile_vidal.jpg"
-      alt=""
-      srcset=""
-    />
-  </div>
-  <div class="col-md-7">
-    <h3>Captain Vidal</h3>
-    <p>
-      Captain Vidal, Ofelia’s stepfather, is the film's literal, real-life
-      representative of fascist ideology. Indeed, he serves as an embodiment of
-      Franco himself. Captain Vidal is a man obsessed with rules and regiment:
-      handshake etiquette, the cleanliness of his boots, and keeping time with
-      his stopwatch. Vidal's obsessions allude to Franco's own authoritarianism
-      and the totalitarian nature of his regime. As the narrative progresses,
-      Captain Vidal becomes a foil and antagonistic villain for the innocent
-      Ofelia, who hopes to escape the repression that surrounds her. Much like
-      the Franco regime, Captain Vidal controls those around him through fear
-      and violence rather than compassion.
-    </p>
-  </div>
-</div>
-<div class="row featurette">
-  <div class="col-md-7">
-    <h3>Carmen</h3>
-    <p>
-      Carmen is Ofelia's mother. She was married to a tailor until he died. Now
-      she is remarrying Captain Vidal, but she has grown sickly in pregnancy.
-      She loves Ofelia dearly, but she does not understand her daughter's more
-      fanciful side and wants to convince her to take life more seriously. Her
-      disbelief in magic leads to her untimely death when, against Ofelia's
-      urging, she throws the restorative mandrake root into the fire.
-    </p>
-  </div>
+  {%else%}
   <div class="flex col-md-5">
     <img
-      src="https://thelionthewitchandthewardrobemalfunctioned.files.wordpress.com/2012/09/mamma1.jpg"
-      alt=""
-      srcset=""
-    />
-  </div>
-</div>
-<div class="row featurette">
-  <div class="flex col-md-5">
-    <img
-      src="https://2.bp.blogspot.com/-AEu0CYrQyLQ/UVD58NNGqVI/AAAAAAAAC8E/6d1HBtMG_aU/s1600/Mercedes+Blood+on+Face.jpg"
+      class="featurette-image img-responsive"
+      src="{{ member.image_source }}"
       alt=""
       srcset=""
     />
   </div>
   <div class="col-md-7">
-    <h3>Mercedes</h3>
+    <h3>{{loop.index}} {{ member.name }}</h3>
     <p>
-      Mercedes is Captain Vidal's housekeeper who also doubles as a mole for the
-      Spanish Rebels. She is caring and helpful to the young Ofelia, and makes
-      many sacrifices in order to support the rebel cause, but her public
-      alignment with Vidal causes her grief. She is not connected to the fantasy
-      world of the film at all, instead working to help the rebel cause.
+      {{ member.description }}
     </p>
   </div>
+
+  {%endif%}
 </div>
-<div class="row featurette">
-  <div class="col-md-7">
-    <h3>The Faun</h3>
-    <p>
-      The Faun (also known as Pan) is a creature that informs Ofelia of her true
-      identity as Princess Moanna and guides her through the tasks that will
-      allow her to return to the Underworld to be with her true parents.
-      According to Guillermo del Toro, the Faun is "a creature that is neither
-      good or evil....like nature....a character there to be witness and
-      shephard her (Ofelia) in her rite of passage, but he has no agenda. He
-      doesn't care if she dies or lives." In spite of this, it is strongly
-      implied that the Faun lusts after or loves Ofelia/Moanna.
-    </p>
-  </div>
-  <div class="flex col-md-5">
-    <img
-      src="https://www.joblo.com/assets/images/arrow/news/2019/04/656panslabyrinth.jpg"
-      alt=""
-      srcset=""
-    />
-  </div>
-</div>
-{% endblock %}
+{% if loop.index != 5%}
+<hr class="featurette-divider" />
+ {%endif%}
+{%endfor%} {% endblock %}
